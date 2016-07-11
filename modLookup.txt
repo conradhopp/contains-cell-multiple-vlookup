@@ -1,0 +1,12 @@
+Function modVLOOKUP(lookupval, lookuprange As Range, indexcol As Long)
+Dim r As Range
+Dim result As String
+result = ""
+For Each r In lookuprange
+    If InStr(r, lookupval) <> 0 Then
+        result = result & ", " & r.Offset(0, indexcol - 1)
+    End If
+Next r
+modVLOOKUP = result
+
+End Function
